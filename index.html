@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="googleb7c94f928b35e8cc.html" />
+        <meta name="description" content="GAFIT - Soluções em Automação & TI (Belo Horizonte - MG) atua no desenvolvimento de softwares Web e aplicativos para Android e iOS.">
+        <meta name="author" content="GAFIT - Soluções em Automação & TI">
+        <meta name="Keywords" content="gafit, soluções, automação, ti, tecnologia, tecnologia da informação, softwares, web, site, aplicativos, Android, iOS, belo horizonte, bh, minas gerais, mg, centro, afonso pena">
+        <meta property="og:title" content="Vitas 2018 - GAFIT" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gafit.com.br/" />
+		<meta name="description" content="Empresa de TI situada em Belo Horizonte - MG que atua no desenvolvimento de softwares Web e aplicativos para Android e iOS.">
+        <link rel="canonical" href="https://gafit.com.br/" />
+        <meta property="og:image" content="https://gafit.com.br/img/bg.jpg">
+        <meta name="description" content="GAFIT">
+        <meta name="author" content="GAFIT">
+        <link rel="shortcut icon" href="https://gafit.com.br/assets/images/favicon/GAFIT-favicon.ico">
+        <link rel="apple-touch-icon image_src" href="https://gafit.com.br/assets/images/favicon/GAFIT-favicon.png">
+   
+
+        <title>Vitas 2018 &#128526; - GAFIT</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <style>
+            html, body{
+                height:100vh;
+                width:100vw;
+                margin:0;
+                padding:0;
+                overflow:hidden;
+                max-height: 100vh;
+            }
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+            .line-up-container{
+                text-align: center;
+				flex-grow: 1;
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
+				width: 100%;
+				padding: 10px 0;
+            }
+			.line {
+				height: 2px;
+				background: #666;
+				width: 100%;
+				position: absolute;
+				z-index: 0;
+			}
+			.slot-div {
+				width: 190px;
+				min-height: 190px;
+				height: 100%;
+				border: 2px solid #666;
+				border-radius: 95px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				background: #fff;
+				z-index: 1;
+			}
+			.slot-div .picture-div {
+				margin:12px 0;
+			}
+			.slot-div .picture-div:first-child {
+				margin-top:20px;
+			}
+			.slot-div .picture-div:last-child {
+				margin-bottom:20px;
+			}
+			.slot-div .picture-div,
+			.slot-div .picture-div img {
+				max-width: 150px;
+				max-height: 150px;
+			}
+			.slot-div .picture-div .remove-btn {
+				display: block;
+				position: absolute;
+				top:0;
+				right:0;
+				padding:8px;
+				background:red;
+			}
+			.picture-div {
+				position: relative;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				z-index: 2;
+			}
+            .talent-library{
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-evenly;
+				flex-shrink: 0;
+				padding: 10px;
+            }
+			.talent-library .picture-div img {
+				max-width: 80px;
+				padding: 3px;
+			}
+			.talent-library .picture-div .remove-btn {
+				display: none;
+			}
+        </style>
+    </head>
+    <body>
+        <div class="line-up-container">
+            <div class="line"></div>
+            <div class="slot-div"></div>
+            <div class="slot-div"></div>
+            <div class="slot-div"></div>
+            <div class="slot-div"></div>
+            <div class="slot-div"></div>
+        </div>
+        <div class="talent-library">
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+            <div class="picture-div">
+                <img class="picture" src="https://labs.gafit.com.br/christmas-project/belisario.png">
+				<span class="remove-btn" onclick="removeFromLineUp(this)">X</span>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+				$(".talent-library .picture-div").draggable({
+					connectToSortable: ".slot-div",	
+					helper: "clone",
+					revert: "invalid"
+				});
+				$(".slot-div").sortable();
+			});
+
+			function removeFromLineUp(p_Item){
+				if($(p_Item).closest('.slot-div').length > 0){
+					$(p_Item).closest('.picture-div').removeFromLineUp();
+				}
+			}
+        </script>
+    </body>
+</html>
