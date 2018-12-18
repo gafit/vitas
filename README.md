@@ -1,2 +1,2 @@
 # gafit-vitas
-small holiday's project for GAFIT
+just for fun, developed by [GAFIT](https://gafit.com.br)
