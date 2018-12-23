@@ -222,7 +222,7 @@
 					v_HTML += '' +
 						'<div class="picture-div" data-singer="' + this + '">'+
 							'<img class="picture" src="photos/' + this + '.png">' +
-							'<span title="Remover" class="remove-btn" onclick="removeFromLineUp(this)"><i class="fa fa-trash-alt"></i></span>' +
+							'<span title="Remover" class="remove-btn" onclick="removeFromLineUp(this)" ontouchend="removeFromLineUp(this)"><i class="fa fa-trash-alt"></i></span>' +
 						'</div>';
 				});
 				$('.talent-library').html(v_HTML);
