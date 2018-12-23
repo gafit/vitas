@@ -164,7 +164,8 @@
 				'sophia',
 				//'thiago',
 				'victor',
-				'vitas'
+				'vitas',
+				'google'
 			]);
             var m_StepDelay = [
 				0,
@@ -179,12 +180,12 @@
                 loadTalents();
                 loadAudios();
 				
-				$(".talent-library .picture-div").draggable({
+				$('.talent-library .picture-div').draggable({
 					connectToSortable: ".slot-div",	
 					helper: "clone",
 					revert: "invalid"
 				});
-				$(".slot-div").sortable({receive: function(event, ui) {playShiryu();}});
+				$('.slot-div').sortable({receive: function(event, ui) {playShiryu();}});
 				
 				$('body').hover(function(e){
 					toggleBackgroundAudio();
