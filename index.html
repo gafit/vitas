@@ -107,6 +107,17 @@
 			.slot-div .picture-div:hover .remove-btn {
 				display: block;
 			}
+			@media(max-width:600px){
+				.slot-div .picture-div,
+				.slot-div .picture-div img {
+					max-width: 120px;
+					max-height: 120px;
+				}
+				.slot-div .picture-div .remove-btn {
+					padding:10px;
+					display: block;
+				}
+			}
 			.picture-div {
 				position: relative;
 				-webkit-touch-callout: none;
