@@ -125,65 +125,11 @@
             <div class="slot-div"></div>
             <!--<div class="slot-div"></div>-->
         </div>
-        <div class="talent-library">
-            <div class="picture-div">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="belisario">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="gabriel">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="vieira">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="henrique">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="jonas">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="rodrigo">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="sophia">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="thiago">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="victor">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <div class="picture-div" data-singer="vitas">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>
-            <!--<div class="picture-div" data-singer="google">
-                <img class="picture">
-				<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>
-            </div>-->
-        </div>
+        <div class="talent-library"></div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
         <script>
-		
             var m_Singers = shuffle([
 				'adriano',
 				'arthur',
@@ -201,7 +147,6 @@
             var NORMAL_SPEED = 1;
 			
             $(document).ready(function(){
-
                 loadTalents();
                 loadAudios();
 				
@@ -259,7 +204,7 @@
                 }
                 return p_Array;
             }
-			 
+			
 			/*
             function sing(p_Person, p_Speed) {
                 var $v_Mouth = $('#' + p_Person + '_mouth');
@@ -281,12 +226,6 @@
                 v_Audio.play();
             }
 			*/
-			
-			var v_Shiryu = new Audio('audio/shiryu.wav');
-			$(document).on('mousedown','.picture', function(){
-				var v_ShiryuNode = v_Shiryu.cloneNode(true);
-				v_ShiryuNode.play();
-			});
         </script>
     </body>
 </html>
