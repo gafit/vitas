@@ -112,11 +112,11 @@
 			@media(max-width:600px){
 				.slot-div .picture-div,
 				.slot-div .picture-div img {
-					max-width: 120px;
-					max-height: 120px;
+					max-width: 110px;
+					max-height: 110px;
 				}
 				.slot-div .picture-div .remove-btn {
-					padding:10px;
+					padding: 10px;
 					display: block;
 				}
 			}
@@ -211,6 +211,7 @@
 				if($(p_Item).closest('.slot-div').length > 0){
 					$(p_Item).closest('.picture-div').remove();
 				}
+				alert('teste');
 			}
 			
             function loadTalents(){
