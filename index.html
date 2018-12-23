@@ -20,7 +20,8 @@
    
 
         <title>Vitas 2018 &#128526; - GAFIT</title>
-        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <style>
             html, body{
                 height:100vh;
@@ -33,6 +34,21 @@
 			body {
 				display: flex;
 				flex-direction: column;
+			}
+			.music-controls{
+				position:absolute;
+				top: 3px;
+				left: 3px;
+			}
+			.music-controls span{
+				padding: 10px 0;
+				background: #00688f;
+				color: #fff;
+				border-radius: 5px;
+				cursor: pointer;
+				display: inline-block;
+				width: 38px;
+				text-align: center;
 			}
             .line-up-container{
                 text-align: center;
@@ -82,8 +98,7 @@
 				position: absolute;
 				top:-5px;
 				right:-5px;
-				font-size:18px;
-				padding:8px 12px;
+				padding:12px;
 				background:#ec0000;
 				color: #fff;
 				border-radius: 5px;
@@ -107,8 +122,10 @@
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-evenly;
+				align-items: center;
 				flex-shrink: 0;
 				padding: 10px;
+				border-top: 1px solid #666;
             }
 			.talent-library .picture-div img {
 				max-width: 80px;
@@ -117,6 +134,11 @@
         </style>
     </head>
     <body>
+		<div class="music-controls">
+			<span class="music-btn" onclick="toggleBackgroundAudio()" title="Música de fundo"><i class="fa fa-volume-up"></i></span>
+			<span class="play-btn" onclick="playMusic()" title="Tocar"><i class="fa fa-play"></i></span>
+			<!--<span class="stop-btn" onclick="stopMusic()"><i class="fa fa-stop"></i></span>-->
+		</div>
         <div class="line-up-container">
             <div class="line"></div>
             <div class="slot-div"></div>
@@ -132,19 +154,26 @@
         <script>
             var m_Singers = shuffle([
 				'adriano',
-				'arthur',
+				//'arthur',
 				'belisario',
 				'gabriel',
 				'vieira',
-				'henrique',
+				//'henrique',
 				'jonas',
 				'rodrigo',
 				'sophia',
-				'thiago',
+				//'thiago',
 				'victor',
 				'vitas'
 			]);
+            var m_StepDelay = [
+				0,
+				1500,
+				1500 + 900,
+				1500 + 900 + 2600
+			];
             var NORMAL_SPEED = 1;
+            var m_BackgroundAudio;
 			
             $(document).ready(function(){
                 loadTalents();
@@ -155,7 +184,12 @@
 					helper: "clone",
 					revert: "invalid"
 				});
-				$(".slot-div").sortable();
+				$(".slot-div").sortable({receive: function(event, ui) {playShiryu();}});
+				
+				$('body').hover(function(e){
+					toggleBackgroundAudio();
+					$(this).off('mouseenter mouseleave');
+				});
 			});
 
 			function removeFromLineUp(p_Item){
@@ -172,7 +206,7 @@
 					v_HTML += '' +
 						'<div class="picture-div" data-singer="' + this + '">'+
 							'<img class="picture" src="photos/' + this + '.png">' +
-							'<span class="remove-btn" onclick="removeFromLineUp(this)">x</span>' +
+							'<span title="Remover" class="remove-btn" onclick="removeFromLineUp(this)"><i class="fa fa-trash-alt"></i></span>' +
 						'</div>';
 				});
 				$('.talent-library').html(v_HTML);
@@ -184,12 +218,64 @@
 						new Audio('audio/' + this + '/' + c_Index + '.wav');
 					}
                 });
-                new Audio('audio/background.wav');
+                new Audio('audio/shiryu.wav');
+                m_BackgroundAudio = new Audio('audio/background.wav');
+                m_BackgroundAudio.loop = true;
+				m_BackgroundAudio.volume = 0.5;
             }
 			
-			function backgroundSound(){
-                var v_Audio = new Audio('audio/background.wav');
-                v_Audio.playbackRate = NORMAL_SPEED;
+            function playShiryu(){
+                var v_Audio = new Audio('audio/shiryu.wav');
+				v_Audio.play();
+            }
+			
+			function toggleBackgroundAudio(){
+				if(m_BackgroundAudio.paused){
+					m_BackgroundAudio.play();
+					$('.music-btn').html('<i class="fa fa-volume-up"></i>')
+				}
+				else {
+					m_BackgroundAudio.pause();
+					$('.music-btn').html('<i class="fa fa-volume-off"></i>');
+				}
+            }
+			
+			function playMusic(){
+				$('.slot-div').each(function(c_Step, c_Slot){
+					$(c_Slot).find('.picture-div').each(function(){
+						singAfter($(this).data('singer'), c_Step, NORMAL_SPEED, m_StepDelay[c_Step]);
+					});
+				});
+            }
+
+            function singGroupAfter(p_Group, p_Step, p_Speed, p_Time){
+				$(p_Group).each(function(){
+					singAfter(this, p_Step, p_Speed, p_Time);
+				});
+            }
+
+            function singAfter(p_Person, p_Step, p_Speed, p_Time){
+                setTimeout(function(){
+                    sing(p_Person, p_Step, p_Speed);
+                }, p_Time);
+            }
+			
+            function sing(p_Person, p_Step, p_Speed) {
+                //var $v_Mouth = $('#' + p_Person + '_mouth');
+                //$v_Mouth.data('sing-count', parseInt($v_Mouth.data('sing-count')) + 1);
+                //$v_Mouth.removeClass('openMouth closeMouth');
+                //setTimeout(function(){
+                //    $v_Mouth.addClass('openMouth');
+                //},15);
+				var v_Audio = new Audio('audio/' + p_Person + '/' + (p_Step + 1) + '.wav');
+                v_Audio.playbackRate = p_Speed;
+                //v_Audio.addEventListener('ended', function(){
+                //    var v_SingCount = parseInt($v_Mouth.data('sing-count')) - 1;
+                //    $v_Mouth.data('sing-count', v_SingCount);
+                //    if(v_SingCount == 0){
+                //        $v_Mouth.removeClass('openMouth closeMouth').addClass('closeMouth');
+                //    }
+                //});
                 v_Audio.play();
             }
 			
@@ -204,28 +290,6 @@
                 }
                 return p_Array;
             }
-			
-			/*
-            function sing(p_Person, p_Speed) {
-                var $v_Mouth = $('#' + p_Person + '_mouth');
-                $v_Mouth.data('sing-count', parseInt($v_Mouth.data('sing-count')) + 1);
-                $v_Mouth.removeClass('openMouth closeMouth');
-                setTimeout(function(){
-                    $v_Mouth.addClass('openMouth');
-                },15);
-//                var v_Audio = new Audio('hey.wav');
-                 var v_Audio = new Audio(p_Person + '.mp3');
-                v_Audio.playbackRate = p_Speed;
-                v_Audio.addEventListener('ended', function(){
-                    var v_SingCount = parseInt($v_Mouth.data('sing-count')) - 1;
-                    $v_Mouth.data('sing-count', v_SingCount);
-                    if(v_SingCount == 0){
-                        $v_Mouth.removeClass('openMouth closeMouth').addClass('closeMouth');
-                    }
-                });
-                v_Audio.play();
-            }
-			*/
         </script>
     </body>
 </html>
