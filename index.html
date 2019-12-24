@@ -148,7 +148,7 @@
     </head>
     <body>
 		<div class="music-controls">
-			<span class="music-btn" onclick="toggleBackgroundAudio()" title="Música de fundo"><i class="fa fa-volume-up"></i></span>
+<!--			<span class="music-btn" onclick="toggleBackgroundAudio()" title="Música de fundo"><i class="fa fa-volume-up"></i></span>-->
 			<span class="play-btn" onclick="playMusic()" title="Tocar"><i class="fa fa-play"></i></span>
 			<!--<span class="stop-btn" onclick="stopMusic()"><i class="fa fa-stop"></i></span>-->
 		</div>
@@ -183,9 +183,9 @@
 			]);
             var m_StepDelay = [
 				0,
-				1500,
-				1500 + 900,
-				1500 + 900 + 2600
+				1385,
+				1385 + 918,
+				1385 + 918 + 3270
 			];
             var NORMAL_SPEED = 1;
             var m_BackgroundAudio;
@@ -202,7 +202,7 @@
 				$('.slot-div').sortable({receive: function(event, ui) {playShiryu();}});
 				
 				$('body').hover(function(e){
-					toggleBackgroundAudio();
+					// toggleBackgroundAudio();
 					$(this).off('mouseenter mouseleave');
 				});
 			});
@@ -235,7 +235,7 @@
                 });
                 new Audio('audio/shiryu.wav');
                 m_BackgroundAudio = new Audio('audio/background.wav');
-                m_BackgroundAudio.loop = true;
+                m_BackgroundAudio.loop = false;
 				m_BackgroundAudio.volume = 0.5;
             }
 			
@@ -261,6 +261,7 @@
 						singAfter($(this).data('singer'), c_Step, NORMAL_SPEED, m_StepDelay[c_Step]);
 					});
 				});
+				m_BackgroundAudio.play();
             }
 
             function singGroupAfter(p_Group, p_Step, p_Speed, p_Time){
